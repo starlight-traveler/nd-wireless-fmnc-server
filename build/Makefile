@@ -130,17 +130,17 @@ check-template/fast:
 .PHONY : check-template/fast
 
 #=============================================================================
-# Target rules for targets named FMNC
+# Target rules for targets named FMNC-CLIENT
 
 # Build rule for target.
-FMNC: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 FMNC
-.PHONY : FMNC
+FMNC-CLIENT: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 FMNC-CLIENT
+.PHONY : FMNC-CLIENT
 
 # fast build rule for target.
-FMNC/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/FMNC.dir/build.make CMakeFiles/FMNC.dir/build
-.PHONY : FMNC/fast
+FMNC-CLIENT/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/FMNC-CLIENT.dir/build.make CMakeFiles/FMNC-CLIENT.dir/build
+.PHONY : FMNC-CLIENT/fast
 
 #=============================================================================
 # Target rules for targets named doc_doxygen
@@ -155,12 +155,49 @@ doc_doxygen/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/doc_doxygen.dir/build.make CMakeFiles/doc_doxygen.dir/build
 .PHONY : doc_doxygen/fast
 
+#=============================================================================
+# Target rules for targets named quill
+
+# Build rule for target.
+quill: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 quill
+.PHONY : quill
+
+# fast build rule for target.
+quill/fast:
+	$(MAKE) $(MAKESILENT) -f lib/quill/CMakeFiles/quill.dir/build.make lib/quill/CMakeFiles/quill.dir/build
+.PHONY : quill/fast
+
+src/logger.o: src/logger.cpp.o
+.PHONY : src/logger.o
+
+# target to build an object file
+src/logger.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/FMNC-CLIENT.dir/build.make CMakeFiles/FMNC-CLIENT.dir/src/logger.cpp.o
+.PHONY : src/logger.cpp.o
+
+src/logger.i: src/logger.cpp.i
+.PHONY : src/logger.i
+
+# target to preprocess a source file
+src/logger.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/FMNC-CLIENT.dir/build.make CMakeFiles/FMNC-CLIENT.dir/src/logger.cpp.i
+.PHONY : src/logger.cpp.i
+
+src/logger.s: src/logger.cpp.s
+.PHONY : src/logger.s
+
+# target to generate assembly for a file
+src/logger.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/FMNC-CLIENT.dir/build.make CMakeFiles/FMNC-CLIENT.dir/src/logger.cpp.s
+.PHONY : src/logger.cpp.s
+
 src/main.o: src/main.cpp.o
 .PHONY : src/main.o
 
 # target to build an object file
 src/main.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/FMNC.dir/build.make CMakeFiles/FMNC.dir/src/main.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/FMNC-CLIENT.dir/build.make CMakeFiles/FMNC-CLIENT.dir/src/main.cpp.o
 .PHONY : src/main.cpp.o
 
 src/main.i: src/main.cpp.i
@@ -168,7 +205,7 @@ src/main.i: src/main.cpp.i
 
 # target to preprocess a source file
 src/main.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/FMNC.dir/build.make CMakeFiles/FMNC.dir/src/main.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/FMNC-CLIENT.dir/build.make CMakeFiles/FMNC-CLIENT.dir/src/main.cpp.i
 .PHONY : src/main.cpp.i
 
 src/main.s: src/main.cpp.s
@@ -176,7 +213,7 @@ src/main.s: src/main.cpp.s
 
 # target to generate assembly for a file
 src/main.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/FMNC.dir/build.make CMakeFiles/FMNC.dir/src/main.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/FMNC-CLIENT.dir/build.make CMakeFiles/FMNC-CLIENT.dir/src/main.cpp.s
 .PHONY : src/main.cpp.s
 
 # Help Target
@@ -189,7 +226,11 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... check-template"
 	@echo "... doc_doxygen"
-	@echo "... FMNC"
+	@echo "... FMNC-CLIENT"
+	@echo "... quill"
+	@echo "... src/logger.o"
+	@echo "... src/logger.i"
+	@echo "... src/logger.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"

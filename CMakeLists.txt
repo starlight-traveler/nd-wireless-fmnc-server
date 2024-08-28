@@ -84,7 +84,7 @@ endif()
 add_definitions(-DBUILD_DATE="${BUILD_DATE}")
 
 # Meta information about the project
-set(META_PROJECT_NAME        "fmnc-wi")
+set(META_PROJECT_NAME        "fmnc-wi-client")
 set(META_PROJECT_DESCRIPTION "FMNC Wireless Institute")
 set(META_AUTHOR_ORGANIZATION "University of Notre Dame")
 set(META_AUTHOR_DOMAIN       "")
@@ -135,27 +135,31 @@ enable_cppcheck(ON)
 enable_clang_tidy(ON)
 enable_coverage(${OPTION_ENABLE_COVERAGE})
 
+# OpenSSL
+set(OPENSSL_ROOT_DIR "/usr/local/opt/openssl")
+set(OPENSSL_INCLUDE_DIR "/usr/local/opt/openssl/include")
+set(OPENSSL_LIBRARIES "/usr/local/opt/openssl/lib")
+find_package(OpenSSL REQUIRED)
 
-# Find packages required by the project. 
-# Add any new find_package() calls heres for additional external libraries.
 
 
 # Project-wide include directories. Add any new general include directories here.
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/include)
-include_directories(${CMAKE_CURRENT_BINARY_DIR}) # Include the binary directory for version.h
+include_directories(${CMAKE_CURRENT_BINARY_DIR})
+include_directories(${OPENSSL_INCLUDE_DIR})
 
+# Quill 
 
-
-# Adding external dependencies located in the 'lib' directory. 
-# To add new libraries, create a subdirectory in 'lib' and use add_subdirectory() here.
+add_subdirectory(${CMAKE_CURRENT_LIST_DIR}/lib/quill)
 
 # Project declaration must be after the Hunter Cmake build system.
-project(FMNC LANGUAGES CXX)
+project(FMNC-CLIENT LANGUAGES CXX)
 
 # Define the executable target. 
 # Add new source files to this list to compile them as part of the project.
 add_executable(${PROJECT_NAME} 
-    src/main.cpp 
+    src/main.cpp
+    src/logger.cpp
 )
 
 # Set include directories for the target. 
@@ -170,6 +174,8 @@ target_include_directories(${PROJECT_NAME}
 # Add new libraries to link against by appending them to this list.
 target_link_libraries(${PROJECT_NAME}
     PRIVATE
+    quill::quill
+    ${OPENSSL_LIBRARIES}
 )
 # Specify C++17 as the target C++ standard for this project.
 target_compile_features(${PROJECT_NAME} PRIVATE cxx_std_17)

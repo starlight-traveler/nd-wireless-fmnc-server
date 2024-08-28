@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.12.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>FMNC: main.cpp File Reference</title>
+<title>FMNC-CLIENT: logger.cpp File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -27,7 +27,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">FMNC
+   <div id="projectname">FMNC-CLIENT
    </div>
   </td>
  </tr>
@@ -98,27 +98,32 @@ $(function(){initNavTree('a00002.html',''); initResizable(true); });
 <div class="header">
   <div class="summary">
 <a href="#func-members">Functions</a>  </div>
-  <div class="headertitle"><div class="title">main.cpp File Reference</div></div>
+  <div class="headertitle"><div class="title">logger.cpp File Reference</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &lt;iostream&gt;</code><br />
+<div class="textblock"><code>#include &quot;quill/Backend.h&quot;</code><br />
+<code>#include &quot;quill/Frontend.h&quot;</code><br />
+<code>#include &quot;quill/Logger.h&quot;</code><br />
+<code>#include &quot;quill/sinks/ConsoleSink.h&quot;</code><br />
+<code>#include &quot;quill/sinks/FileSink.h&quot;</code><br />
+<code>#include &lt;utility&gt;</code><br />
 </div>
 <p><a href="a00002_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ae66f6b31b5ad750f1fe042a706a4e3d4" id="r_ae66f6b31b5ad750f1fe042a706a4e3d4"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae66f6b31b5ad750f1fe042a706a4e3d4">main</a> ()</td></tr>
-<tr class="separator:ae66f6b31b5ad750f1fe042a706a4e3d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5612e7039d064556accc794105a7397b" id="r_a5612e7039d064556accc794105a7397b"><td class="memItemLeft" align="right" valign="top">quill::Logger *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5612e7039d064556accc794105a7397b">initialize_logger</a> ()</td></tr>
+<tr class="separator:a5612e7039d064556accc794105a7397b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="ae66f6b31b5ad750f1fe042a706a4e3d4" name="ae66f6b31b5ad750f1fe042a706a4e3d4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae66f6b31b5ad750f1fe042a706a4e3d4">&#9670;&#160;</a></span>main()</h2>
+<a id="a5612e7039d064556accc794105a7397b" name="a5612e7039d064556accc794105a7397b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5612e7039d064556accc794105a7397b">&#9670;&#160;</a></span>initialize_logger()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int main </td>
+          <td class="memname">quill::Logger * initialize_logger </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
@@ -126,11 +131,39 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00002_source.html#l00003">3</a> of file <a class="el" href="a00002_source.html">main.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">    3</span>           {</div>
-<div class="line"><span class="lineno">    4</span>    std::cout &lt;&lt; <span class="stringliteral">&quot;Hello World!&quot;</span>;</div>
-<div class="line"><span class="lineno">    5</span>    <span class="keywordflow">return</span> 0;</div>
-<div class="line"><span class="lineno">    6</span>}</div>
+<p class="definition">Definition at line <a class="el" href="a00002_source.html#l00009">9</a> of file <a class="el" href="a00002_source.html">logger.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   10</span>{</div>
+<div class="line"><span class="lineno">   11</span>    <span class="comment">// Start the backend thread</span></div>
+<div class="line"><span class="lineno">   12</span>    quill::BackendOptions backend_options;</div>
+<div class="line"><span class="lineno">   13</span>    quill::Backend::start(backend_options);</div>
+<div class="line"><span class="lineno">   14</span> </div>
+<div class="line"><span class="lineno">   15</span>    <span class="comment">// Frontend</span></div>
+<div class="line"><span class="lineno">   16</span>    quill::ConsoleColours custom_console_colours;</div>
+<div class="line"><span class="lineno">   17</span>    custom_console_colours.set_default_colours();</div>
+<div class="line"><span class="lineno">   18</span>    custom_console_colours.set_colour(quill::LogLevel::Info, quill::ConsoleColours::blue);      <span class="comment">// overwrite the colour for INFO</span></div>
+<div class="line"><span class="lineno">   19</span>    custom_console_colours.set_colour(quill::LogLevel::Warning, quill::ConsoleColours::yellow); <span class="comment">// overwrite the colour for WARNING</span></div>
+<div class="line"><span class="lineno">   20</span>    custom_console_colours.set_colour(quill::LogLevel::Error, quill::ConsoleColours::red);      <span class="comment">// overwrite the colour for ERROR</span></div>
+<div class="line"><span class="lineno">   21</span> </div>
+<div class="line"><span class="lineno">   22</span>    <span class="comment">// Create the sink</span></div>
+<div class="line"><span class="lineno">   23</span>    <span class="keyword">auto</span> console_sink = quill::Frontend::create_or_get_sink&lt;quill::ConsoleSink&gt;(<span class="stringliteral">&quot;sink_server&quot;</span>, custom_console_colours);</div>
+<div class="line"><span class="lineno">   24</span> </div>
+<div class="line"><span class="lineno">   25</span>    <span class="keyword">auto</span> file_sink = quill::Frontend::create_or_get_sink&lt;quill::FileSink&gt;(</div>
+<div class="line"><span class="lineno">   26</span>        <span class="stringliteral">&quot;fmnc_server.log&quot;</span>,</div>
+<div class="line"><span class="lineno">   27</span>        []()</div>
+<div class="line"><span class="lineno">   28</span>        {</div>
+<div class="line"><span class="lineno">   29</span>            quill::FileSinkConfig cfg;</div>
+<div class="line"><span class="lineno">   30</span>            cfg.set_open_mode(<span class="charliteral">&#39;w&#39;</span>);</div>
+<div class="line"><span class="lineno">   31</span>            <span class="keywordflow">return</span> cfg;</div>
+<div class="line"><span class="lineno">   32</span>        }(),</div>
+<div class="line"><span class="lineno">   33</span>        quill::FileEventNotifier{});</div>
+<div class="line"><span class="lineno">   34</span> </div>
+<div class="line"><span class="lineno">   35</span>    quill::Logger *logger = quill::Frontend::create_or_get_logger(<span class="stringliteral">&quot;root&quot;</span>, {std::move(console_sink), std::move(file_sink)});</div>
+<div class="line"><span class="lineno">   36</span> </div>
+<div class="line"><span class="lineno">   37</span>    <span class="comment">// Change the LogLevel to print everything</span></div>
+<div class="line"><span class="lineno">   38</span>    logger-&gt;set_log_level(quill::LogLevel::TraceL3);</div>
+<div class="line"><span class="lineno">   39</span> </div>
+<div class="line"><span class="lineno">   40</span>    <span class="keywordflow">return</span> logger;</div>
+<div class="line"><span class="lineno">   41</span>}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -139,7 +172,7 @@ Functions</h2></td></tr>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="a00002.html">main.cpp</a></li>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="a00002.html">logger.cpp</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
   </ul>
 </div>

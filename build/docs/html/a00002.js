@@ -1,4 +1,4 @@
 var a00002 =
 [
-    [ "main", "a00002.html#ae66f6b31b5ad750f1fe042a706a4e3d4", null ]
+    [ "initialize_logger", "a00002.html#a5612e7039d064556accc794105a7397b", null ]
 ];

@@ -63,19 +63,36 @@ CMAKE_BINARY_DIR = /Users/paillet/local/research/research-backendserver-fmnc/bui
 # Directory level rules for the build root directory
 
 # The main recursive "all" target.
-all: CMakeFiles/FMNC.dir/all
+all: CMakeFiles/FMNC-CLIENT.dir/all
 all: CMakeFiles/doc_doxygen.dir/all
+all: lib/quill/all
 .PHONY : all
 
 # The main recursive "preinstall" target.
-preinstall:
+preinstall: lib/quill/preinstall
 .PHONY : preinstall
 
 # The main recursive "clean" target.
 clean: CMakeFiles/check-template.dir/clean
-clean: CMakeFiles/FMNC.dir/clean
+clean: CMakeFiles/FMNC-CLIENT.dir/clean
 clean: CMakeFiles/doc_doxygen.dir/clean
+clean: lib/quill/clean
 .PHONY : clean
+
+#=============================================================================
+# Directory level rules for directory lib/quill
+
+# Recursive "all" directory target.
+lib/quill/all: lib/quill/CMakeFiles/quill.dir/all
+.PHONY : lib/quill/all
+
+# Recursive "preinstall" directory target.
+lib/quill/preinstall:
+.PHONY : lib/quill/preinstall
+
+# Recursive "clean" directory target.
+lib/quill/clean: lib/quill/CMakeFiles/quill.dir/clean
+.PHONY : lib/quill/clean
 
 #=============================================================================
 # Target rules for target CMakeFiles/check-template.dir
@@ -104,30 +121,30 @@ CMakeFiles/check-template.dir/clean:
 .PHONY : CMakeFiles/check-template.dir/clean
 
 #=============================================================================
-# Target rules for target CMakeFiles/FMNC.dir
+# Target rules for target CMakeFiles/FMNC-CLIENT.dir
 
 # All Build rule for target.
-CMakeFiles/FMNC.dir/all:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/FMNC.dir/build.make CMakeFiles/FMNC.dir/depend
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/FMNC.dir/build.make CMakeFiles/FMNC.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/paillet/local/research/research-backendserver-fmnc/build/CMakeFiles --progress-num=1,2 "Built target FMNC"
-.PHONY : CMakeFiles/FMNC.dir/all
+CMakeFiles/FMNC-CLIENT.dir/all: lib/quill/CMakeFiles/quill.dir/all
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/FMNC-CLIENT.dir/build.make CMakeFiles/FMNC-CLIENT.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/FMNC-CLIENT.dir/build.make CMakeFiles/FMNC-CLIENT.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/paillet/local/research/research-backendserver-fmnc/build/CMakeFiles --progress-num=1,2,3 "Built target FMNC-CLIENT"
+.PHONY : CMakeFiles/FMNC-CLIENT.dir/all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/FMNC.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/paillet/local/research/research-backendserver-fmnc/build/CMakeFiles 2
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/FMNC.dir/all
+CMakeFiles/FMNC-CLIENT.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/paillet/local/research/research-backendserver-fmnc/build/CMakeFiles 3
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/FMNC-CLIENT.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /Users/paillet/local/research/research-backendserver-fmnc/build/CMakeFiles 0
-.PHONY : CMakeFiles/FMNC.dir/rule
+.PHONY : CMakeFiles/FMNC-CLIENT.dir/rule
 
 # Convenience name for target.
-FMNC: CMakeFiles/FMNC.dir/rule
-.PHONY : FMNC
+FMNC-CLIENT: CMakeFiles/FMNC-CLIENT.dir/rule
+.PHONY : FMNC-CLIENT
 
 # clean rule for target.
-CMakeFiles/FMNC.dir/clean:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/FMNC.dir/build.make CMakeFiles/FMNC.dir/clean
-.PHONY : CMakeFiles/FMNC.dir/clean
+CMakeFiles/FMNC-CLIENT.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/FMNC-CLIENT.dir/build.make CMakeFiles/FMNC-CLIENT.dir/clean
+.PHONY : CMakeFiles/FMNC-CLIENT.dir/clean
 
 #=============================================================================
 # Target rules for target CMakeFiles/doc_doxygen.dir
@@ -136,7 +153,7 @@ CMakeFiles/FMNC.dir/clean:
 CMakeFiles/doc_doxygen.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/doc_doxygen.dir/build.make CMakeFiles/doc_doxygen.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/doc_doxygen.dir/build.make CMakeFiles/doc_doxygen.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/paillet/local/research/research-backendserver-fmnc/build/CMakeFiles --progress-num=3 "Built target doc_doxygen"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/paillet/local/research/research-backendserver-fmnc/build/CMakeFiles --progress-num=4 "Built target doc_doxygen"
 .PHONY : CMakeFiles/doc_doxygen.dir/all
 
 # Build rule for subdir invocation for target.
@@ -154,6 +171,32 @@ doc_doxygen: CMakeFiles/doc_doxygen.dir/rule
 CMakeFiles/doc_doxygen.dir/clean:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/doc_doxygen.dir/build.make CMakeFiles/doc_doxygen.dir/clean
 .PHONY : CMakeFiles/doc_doxygen.dir/clean
+
+#=============================================================================
+# Target rules for target lib/quill/CMakeFiles/quill.dir
+
+# All Build rule for target.
+lib/quill/CMakeFiles/quill.dir/all:
+	$(MAKE) $(MAKESILENT) -f lib/quill/CMakeFiles/quill.dir/build.make lib/quill/CMakeFiles/quill.dir/depend
+	$(MAKE) $(MAKESILENT) -f lib/quill/CMakeFiles/quill.dir/build.make lib/quill/CMakeFiles/quill.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/paillet/local/research/research-backendserver-fmnc/build/CMakeFiles --progress-num= "Built target quill"
+.PHONY : lib/quill/CMakeFiles/quill.dir/all
+
+# Build rule for subdir invocation for target.
+lib/quill/CMakeFiles/quill.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/paillet/local/research/research-backendserver-fmnc/build/CMakeFiles 0
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 lib/quill/CMakeFiles/quill.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/paillet/local/research/research-backendserver-fmnc/build/CMakeFiles 0
+.PHONY : lib/quill/CMakeFiles/quill.dir/rule
+
+# Convenience name for target.
+quill: lib/quill/CMakeFiles/quill.dir/rule
+.PHONY : quill
+
+# clean rule for target.
+lib/quill/CMakeFiles/quill.dir/clean:
+	$(MAKE) $(MAKESILENT) -f lib/quill/CMakeFiles/quill.dir/build.make lib/quill/CMakeFiles/quill.dir/clean
+.PHONY : lib/quill/CMakeFiles/quill.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

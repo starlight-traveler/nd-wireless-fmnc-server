@@ -45,11 +45,29 @@ CMAKE_CXX_FLAGS_RELEASE:STRING=-O3 -DNDEBUG
 //Flags used by the CXX compiler during RELWITHDEBINFO builds.
 CMAKE_CXX_FLAGS_RELWITHDEBINFO:STRING=-O2 -g -DNDEBUG
 
+//C compiler
+CMAKE_C_COMPILER:FILEPATH=/Library/Developer/CommandLineTools/usr/bin/cc
+
+//Flags used by the C compiler during all build types.
+CMAKE_C_FLAGS:STRING=
+
+//Flags used by the C compiler during DEBUG builds.
+CMAKE_C_FLAGS_DEBUG:STRING=-g
+
+//Flags used by the C compiler during MINSIZEREL builds.
+CMAKE_C_FLAGS_MINSIZEREL:STRING=-Os -DNDEBUG
+
+//Flags used by the C compiler during RELEASE builds.
+CMAKE_C_FLAGS_RELEASE:STRING=-O3 -DNDEBUG
+
+//Flags used by the C compiler during RELWITHDEBINFO builds.
+CMAKE_C_FLAGS_RELWITHDEBINFO:STRING=-O2 -g -DNDEBUG
+
 //Path to a program.
 CMAKE_DLLTOOL:FILEPATH=CMAKE_DLLTOOL-NOTFOUND
 
 //Flags used by the linker during all build types.
-CMAKE_EXE_LINKER_FLAGS:STRING=
+CMAKE_EXE_LINKER_FLAGS:STRING=-L/opt/homebrew/opt/llvm/lib -L/opt/homebrew/opt/llvm/lib/c++ -Wl,-rpath,/opt/homebrew/opt/llvm/lib/c++
 
 //Flags used by the linker during DEBUG builds.
 CMAKE_EXE_LINKER_FLAGS_DEBUG:STRING=
@@ -83,7 +101,7 @@ CMAKE_MAKE_PROGRAM:FILEPATH=/usr/bin/make
 
 //Flags used by the linker during the creation of modules during
 // all build types.
-CMAKE_MODULE_LINKER_FLAGS:STRING=
+CMAKE_MODULE_LINKER_FLAGS:STRING=-L/opt/homebrew/opt/llvm/lib -L/opt/homebrew/opt/llvm/lib/c++ -Wl,-rpath,/opt/homebrew/opt/llvm/lib/c++
 
 //Flags used by the linker during the creation of modules during
 // DEBUG builds.
@@ -128,7 +146,22 @@ CMAKE_PROJECT_DESCRIPTION:STATIC=
 CMAKE_PROJECT_HOMEPAGE_URL:STATIC=
 
 //Value Computed by CMake
-CMAKE_PROJECT_NAME:STATIC=FMNC
+CMAKE_PROJECT_NAME:STATIC=FMNC-CLIENT
+
+//Value Computed by CMake
+CMAKE_PROJECT_VERSION:STATIC=7.0.0
+
+//Value Computed by CMake
+CMAKE_PROJECT_VERSION_MAJOR:STATIC=7
+
+//Value Computed by CMake
+CMAKE_PROJECT_VERSION_MINOR:STATIC=0
+
+//Value Computed by CMake
+CMAKE_PROJECT_VERSION_PATCH:STATIC=0
+
+//Value Computed by CMake
+CMAKE_PROJECT_VERSION_TWEAK:STATIC=
 
 //Path to a program.
 CMAKE_RANLIB:FILEPATH=/Library/Developer/CommandLineTools/usr/bin/ranlib
@@ -138,7 +171,7 @@ CMAKE_READELF:FILEPATH=CMAKE_READELF-NOTFOUND
 
 //Flags used by the linker during the creation of shared libraries
 // during all build types.
-CMAKE_SHARED_LINKER_FLAGS:STRING=
+CMAKE_SHARED_LINKER_FLAGS:STRING=-L/opt/homebrew/opt/llvm/lib -L/opt/homebrew/opt/llvm/lib/c++ -Wl,-rpath,/opt/homebrew/opt/llvm/lib/c++
 
 //Flags used by the linker during the creation of shared libraries
 // during DEBUG builds.
@@ -202,16 +235,94 @@ DOXYGEN_DOT_EXECUTABLE:FILEPATH=/usr/local/bin/dot
 DOXYGEN_EXECUTABLE:FILEPATH=/usr/local/bin/doxygen
 
 //Value Computed by CMake
-FMNC_BINARY_DIR:STATIC=/Users/paillet/local/research/research-backendserver-fmnc/build
+FMNC-CLIENT_BINARY_DIR:STATIC=/Users/paillet/local/research/research-backendserver-fmnc/build
 
 //Value Computed by CMake
-FMNC_IS_TOP_LEVEL:STATIC=ON
+FMNC-CLIENT_IS_TOP_LEVEL:STATIC=ON
 
 //Value Computed by CMake
-FMNC_SOURCE_DIR:STATIC=/Users/paillet/local/research/research-backendserver-fmnc
+FMNC-CLIENT_SOURCE_DIR:STATIC=/Users/paillet/local/research/research-backendserver-fmnc
+
+//Value Computed by CMake
+FMNC-SERVER_BINARY_DIR:STATIC=/Users/paillet/local/research/research-backendserver-fmnc/build
+
+//Value Computed by CMake
+FMNC-SERVER_IS_TOP_LEVEL:STATIC=ON
+
+//Value Computed by CMake
+FMNC-SERVER_SOURCE_DIR:STATIC=/Users/paillet/local/research/research-backendserver-fmnc
+
+//Path to a library.
+OPENSSL_CRYPTO_LIBRARY:FILEPATH=/usr/local/opt/openssl/lib/libcrypto.dylib
+
+//Path to a library.
+OPENSSL_SSL_LIBRARY:FILEPATH=/usr/local/opt/openssl/lib/libssl.dylib
 
 //Add coverage information.
 OPTION_ENABLE_COVERAGE:BOOL=ON
+
+//Arguments to supply to pkg-config
+PKG_CONFIG_ARGN:STRING=
+
+//pkg-config executable
+PKG_CONFIG_EXECUTABLE:FILEPATH=/usr/local/bin/pkg-config
+
+//Enable this option to build the benchmark tests for Quill.
+QUILL_BUILD_BENCHMARKS:BOOL=OFF
+
+//Enable this option to build and install the examples. Set this
+// to ON to include example projects in the build process and have
+// them installed after configuring with CMake.
+QUILL_BUILD_EXAMPLES:BOOL=OFF
+
+//Enable this option to build the test suite for Quill.
+QUILL_BUILD_TESTS:BOOL=OFF
+
+//Enable code coverage analysis during the build.
+QUILL_CODE_COVERAGE:BOOL=OFF
+
+//Enable this option to disable non-prefixed `LOG_*` macros, keeping
+// only the `QUILL_LOG_*` macros to avoid conflicts with other
+// logging libraries.
+QUILL_DISABLE_NON_PREFIXED_MACROS:BOOL=OFF
+
+//Generate documentation for Quill during the build process.
+QUILL_DOCS_GEN:BOOL=OFF
+
+//Enable the CMake install target when Quill is not the master
+// project.
+QUILL_ENABLE_INSTALL:BOOL=OFF
+
+//Master Project
+QUILL_MASTER_PROJECT:BOOL=FALSE
+
+//Enable this option to build Quill without exception handling
+// support.
+QUILL_NO_EXCEPTIONS:BOOL=OFF
+
+//Enable this option to disable features that require thread name
+// retrieval, ensuring compatibility with older Windows versions
+// (e.g., Windows Server 2012/2016) and Android.
+QUILL_NO_THREAD_NAME_SUPPORT:BOOL=OFF
+
+//Enable AddressSanitizer (ASan) for memory error detection in
+// tests.
+QUILL_SANITIZE_ADDRESS:BOOL=OFF
+
+//Enable ThreadSanitizer (TSan) for detecting thread-related issues
+// in tests. Note: Using this option with non-Clang compilers may
+// produce false positives.
+QUILL_SANITIZE_THREAD:BOOL=OFF
+
+//Use Valgrind as the default memory checking tool in CTest. Valgrind
+// must be installed.
+QUILL_USE_VALGRIND:BOOL=OFF
+
+//Enable x86-specific optimizations for cache coherence using _mm_prefetch,
+// _mm_clflush, and _mm_clflushopt instructions. Ensure the target
+// architecture must also be specified with -march="..." when enabling
+// this option.
+QUILL_X86ARCH:BOOL=OFF
 
 //Connect Without GUI
 SERVER_CONNECT:BOOL=OFF
@@ -227,6 +338,21 @@ genhtml_EXECUTABLE:FILEPATH=/usr/local/bin/genhtml
 
 //Path to a program.
 lcov_EXECUTABLE:FILEPATH=/usr/local/bin/lcov
+
+//Path to a library.
+pkgcfg_lib__OPENSSL_crypto:FILEPATH=/usr/local/Cellar/openssl@3/3.3.1/lib/libcrypto.dylib
+
+//Path to a library.
+pkgcfg_lib__OPENSSL_ssl:FILEPATH=/usr/local/Cellar/openssl@3/3.3.1/lib/libssl.dylib
+
+//Value Computed by CMake
+quill_BINARY_DIR:STATIC=/Users/paillet/local/research/research-backendserver-fmnc/build/lib/quill
+
+//Value Computed by CMake
+quill_IS_TOP_LEVEL:STATIC=OFF
+
+//Value Computed by CMake
+quill_SOURCE_DIR:STATIC=/Users/paillet/local/research/research-backendserver-fmnc/lib/quill
 
 
 ########################
@@ -265,6 +391,18 @@ CMAKE_CXX_FLAGS_MINSIZEREL-ADVANCED:INTERNAL=1
 CMAKE_CXX_FLAGS_RELEASE-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_CXX_FLAGS_RELWITHDEBINFO
 CMAKE_CXX_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CMAKE_C_COMPILER
+CMAKE_C_COMPILER-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CMAKE_C_FLAGS
+CMAKE_C_FLAGS-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CMAKE_C_FLAGS_DEBUG
+CMAKE_C_FLAGS_DEBUG-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CMAKE_C_FLAGS_MINSIZEREL
+CMAKE_C_FLAGS_MINSIZEREL-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CMAKE_C_FLAGS_RELEASE
+CMAKE_C_FLAGS_RELEASE-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CMAKE_C_FLAGS_RELWITHDEBINFO
+CMAKE_C_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_DLLTOOL
 CMAKE_DLLTOOL-ADVANCED:INTERNAL=1
 //Path to cache edit program executable.
@@ -293,6 +431,8 @@ CMAKE_GENERATOR_INSTANCE:INTERNAL=
 CMAKE_GENERATOR_PLATFORM:INTERNAL=
 //Name of generator toolset.
 CMAKE_GENERATOR_TOOLSET:INTERNAL=
+//Test CMAKE_HAVE_LIBC_PTHREAD
+CMAKE_HAVE_LIBC_PTHREAD:INTERNAL=1
 //Source directory with the top level CMakeLists.txt file for this
 // project
 CMAKE_HOME_DIRECTORY:INTERNAL=/Users/paillet/local/research/research-backendserver-fmnc
@@ -315,7 +455,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_NM
 CMAKE_NM-ADVANCED:INTERNAL=1
 //number of local generators
-CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=1
+CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=2
 //ADVANCED property for variable: CMAKE_OBJCOPY
 CMAKE_OBJCOPY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_OBJDUMP
@@ -366,8 +506,57 @@ DOXYGEN_DOT_EXECUTABLE-ADVANCED:INTERNAL=1
 DOXYGEN_EXECUTABLE-ADVANCED:INTERNAL=1
 //Details about finding Doxygen
 FIND_PACKAGE_MESSAGE_DETAILS_Doxygen:INTERNAL=[/usr/local/bin/doxygen][cfound components: doxygen dot ][v1.12.0()]
+//Details about finding OpenSSL
+FIND_PACKAGE_MESSAGE_DETAILS_OpenSSL:INTERNAL=[/usr/local/opt/openssl/lib/libcrypto.dylib][/usr/local/opt/openssl/include][c ][v3.3.1()]
+//Details about finding Threads
+FIND_PACKAGE_MESSAGE_DETAILS_Threads:INTERNAL=[TRUE][v()]
 //Details about finding lcov
 FIND_PACKAGE_MESSAGE_DETAILS_lcov:INTERNAL=[/usr/local/bin/lcov][/usr/local/bin/genhtml][v()]
+//ADVANCED property for variable: OPENSSL_CRYPTO_LIBRARY
+OPENSSL_CRYPTO_LIBRARY-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: OPENSSL_SSL_LIBRARY
+OPENSSL_SSL_LIBRARY-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: PKG_CONFIG_ARGN
+PKG_CONFIG_ARGN-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: PKG_CONFIG_EXECUTABLE
+PKG_CONFIG_EXECUTABLE-ADVANCED:INTERNAL=1
+_OPENSSL_CFLAGS:INTERNAL=-I/usr/local/Cellar/openssl@3/3.3.1/include
+_OPENSSL_CFLAGS_I:INTERNAL=
+_OPENSSL_CFLAGS_OTHER:INTERNAL=
+_OPENSSL_FOUND:INTERNAL=1
+_OPENSSL_INCLUDEDIR:INTERNAL=/usr/local/Cellar/openssl@3/3.3.1/include
+_OPENSSL_INCLUDE_DIRS:INTERNAL=/usr/local/Cellar/openssl@3/3.3.1/include
+_OPENSSL_LDFLAGS:INTERNAL=-L/usr/local/Cellar/openssl@3/3.3.1/lib;-lssl;-lcrypto
+_OPENSSL_LDFLAGS_OTHER:INTERNAL=
+_OPENSSL_LIBDIR:INTERNAL=/usr/local/Cellar/openssl@3/3.3.1/lib
+_OPENSSL_LIBRARIES:INTERNAL=ssl;crypto
+_OPENSSL_LIBRARY_DIRS:INTERNAL=/usr/local/Cellar/openssl@3/3.3.1/lib
+_OPENSSL_LIBS:INTERNAL=
+_OPENSSL_LIBS_L:INTERNAL=
+_OPENSSL_LIBS_OTHER:INTERNAL=
+_OPENSSL_LIBS_PATHS:INTERNAL=
+_OPENSSL_MODULE_NAME:INTERNAL=openssl
+_OPENSSL_PREFIX:INTERNAL=
+_OPENSSL_STATIC_CFLAGS:INTERNAL=-I/usr/local/Cellar/openssl@3/3.3.1/include
+_OPENSSL_STATIC_CFLAGS_I:INTERNAL=
+_OPENSSL_STATIC_CFLAGS_OTHER:INTERNAL=
+_OPENSSL_STATIC_INCLUDE_DIRS:INTERNAL=/usr/local/Cellar/openssl@3/3.3.1/include
+_OPENSSL_STATIC_LDFLAGS:INTERNAL=-L/usr/local/Cellar/openssl@3/3.3.1/lib;-lssl;-lcrypto
+_OPENSSL_STATIC_LDFLAGS_OTHER:INTERNAL=
+_OPENSSL_STATIC_LIBDIR:INTERNAL=
+_OPENSSL_STATIC_LIBRARIES:INTERNAL=ssl;crypto
+_OPENSSL_STATIC_LIBRARY_DIRS:INTERNAL=/usr/local/Cellar/openssl@3/3.3.1/lib
+_OPENSSL_STATIC_LIBS:INTERNAL=
+_OPENSSL_STATIC_LIBS_L:INTERNAL=
+_OPENSSL_STATIC_LIBS_OTHER:INTERNAL=
+_OPENSSL_STATIC_LIBS_PATHS:INTERNAL=
+_OPENSSL_VERSION:INTERNAL=3.3.1
+_OPENSSL_openssl_INCLUDEDIR:INTERNAL=
+_OPENSSL_openssl_LIBDIR:INTERNAL=
+_OPENSSL_openssl_PREFIX:INTERNAL=
+_OPENSSL_openssl_VERSION:INTERNAL=
+__pkg_config_arguments__OPENSSL:INTERNAL=QUIET;openssl
+__pkg_config_checked__OPENSSL:INTERNAL=1
 //ADVANCED property for variable: clang_tidy_EXECUTABLE
 clang_tidy_EXECUTABLE-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: cppcheck_EXECUTABLE
@@ -376,4 +565,9 @@ cppcheck_EXECUTABLE-ADVANCED:INTERNAL=1
 genhtml_EXECUTABLE-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: lcov_EXECUTABLE
 lcov_EXECUTABLE-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: pkgcfg_lib__OPENSSL_crypto
+pkgcfg_lib__OPENSSL_crypto-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: pkgcfg_lib__OPENSSL_ssl
+pkgcfg_lib__OPENSSL_ssl-ADVANCED:INTERNAL=1
+prefix_result:INTERNAL=/usr/local/Cellar/openssl@3/3.3.1/lib
 
