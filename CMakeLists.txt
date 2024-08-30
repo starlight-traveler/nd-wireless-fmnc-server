@@ -136,11 +136,11 @@ enable_clang_tidy(ON)
 enable_coverage(${OPTION_ENABLE_COVERAGE})
 
 # OpenSSL
-set(OPENSSL_ROOT_DIR "/usr/local/opt/openssl")
-set(OPENSSL_INCLUDE_DIR "/usr/local/opt/openssl/include")
-set(OPENSSL_LIBRARIES "/usr/local/opt/openssl/lib")
+set(OPENSSL_ROOT_DIR "/opt/homebrew/opt/openssl@3" CACHE PATH "Root directory of OpenSSL")
+set(OPENSSL_INCLUDE_DIR "${OPENSSL_ROOT_DIR}/include")
+set(OPENSSL_CRYPTO_LIBRARY "${OPENSSL_ROOT_DIR}/lib/libcrypto.dylib")
+set(OPENSSL_SSL_LIBRARY "${OPENSSL_ROOT_DIR}/lib/libssl.dylib")
 find_package(OpenSSL REQUIRED)
-
 
 
 # Project-wide include directories. Add any new general include directories here.
@@ -153,13 +153,12 @@ include_directories(${OPENSSL_INCLUDE_DIR})
 add_subdirectory(${CMAKE_CURRENT_LIST_DIR}/lib/quill)
 
 # Project declaration must be after the Hunter Cmake build system.
-project(FMNC-CLIENT LANGUAGES CXX)
+project(FMNC-SERVER LANGUAGES CXX)
 
 # Define the executable target. 
 # Add new source files to this list to compile them as part of the project.
 add_executable(${PROJECT_NAME} 
     src/main.cpp
-    src/logger.cpp
 )
 
 # Set include directories for the target. 
@@ -174,6 +173,8 @@ target_include_directories(${PROJECT_NAME}
 # Add new libraries to link against by appending them to this list.
 target_link_libraries(${PROJECT_NAME}
     PRIVATE
+    OpenSSL::SSL
+    OpenSSL::Crypto
     quill::quill
     ${OPENSSL_LIBRARIES}
 )

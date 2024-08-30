@@ -65,6 +65,5 @@ var searchData=
   ['stop_62',['stop',['../a00084.html#a0f2a6a638ad99012886c87c9786a43b3',1,'httplib::Server::stop()'],['../a00096.html#a4612a28562001509a2bf104eae2857fd',1,'httplib::ClientImpl::stop()'],['../a00104.html#a7f62962b9cf2b4ccfb8b1e56f7b1c73e',1,'httplib::Client::stop()']]],
   ['str2tag_63',['str2tag',['../a00015.html#a8421d59405044ca97486b9b41d728b0b',1,'httplib::detail']]],
   ['str2tag_5fcore_64',['str2tag_core',['../a00015.html#afbbe1f2e45c67a29f1cb3cb68eadbfa6',1,'httplib::detail']]],
-  ['stream_5fline_5freader_65',['stream_line_reader',['../a00124.html#a0dc4483bce6fd367b08a2ed96e3f048b',1,'httplib::detail::stream_line_reader']]],
-  ['svr_66',['svr',['../a00005.html#aa08818c282bafade572870a1cbdb316a',1,'main.cpp']]]
+  ['stream_5fline_5freader_65',['stream_line_reader',['../a00124.html#a0dc4483bce6fd367b08a2ed96e3f048b',1,'httplib::detail::stream_line_reader']]]
 ];

@@ -1,6 +1,4 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/FMNC-SERVER.dir/src/logger.cpp.o"
-  "CMakeFiles/FMNC-SERVER.dir/src/logger.cpp.o.d"
   "CMakeFiles/FMNC-SERVER.dir/src/main.cpp.o"
   "CMakeFiles/FMNC-SERVER.dir/src/main.cpp.o.d"
   "FMNC-SERVER"

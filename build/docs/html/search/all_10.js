@@ -86,7 +86,6 @@ var searchData=
   ['stream_83',['Stream',['../a00056.html',1,'httplib']]],
   ['stream_5fline_5freader_84',['stream_line_reader',['../a00124.html',1,'httplib::detail::stream_line_reader'],['../a00124.html#a0dc4483bce6fd367b08a2ed96e3f048b',1,'httplib::detail::stream_line_reader::stream_line_reader()']]],
   ['success_85',['Success',['../a00014.html#a46ff5da925971ebebf2c5693e367f24aa505a83f220c02df2f85c3810cd9ceb38',1,'httplib']]],
-  ['svr_86',['svr',['../a00005.html#aa08818c282bafade572870a1cbdb316a',1,'main.cpp']]],
-  ['svr_5fsock_5f_87',['svr_sock_',['../a00084.html#a8bc06c5e7e93632a22db8fd35f68b4a1',1,'httplib::Server']]],
-  ['switchingprotocol_5f101_88',['SwitchingProtocol_101',['../a00014.html#ade1f5845ce6b8d8fdb3a56676db48fbaa0e3e2e065deca116157ac02043685dc6',1,'httplib']]]
+  ['svr_5fsock_5f_86',['svr_sock_',['../a00084.html#a8bc06c5e7e93632a22db8fd35f68b4a1',1,'httplib::Server']]],
+  ['switchingprotocol_5f101_87',['SwitchingProtocol_101',['../a00014.html#ade1f5845ce6b8d8fdb3a56676db48fbaa0e3e2e065deca116157ac02043685dc6',1,'httplib']]]
 ];

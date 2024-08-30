@@ -24,7 +24,7 @@
 */
 var NAVTREE =
 [
-  [ "FMNC-CLIENT", "index.html", [
+  [ "FMNC-SERVER", "index.html", [
     [ "Namespaces", "namespaces.html", [
       [ "Namespace List", "namespaces.html", "namespaces_dup" ],
       [ "Namespace Members", "namespacemembers.html", [
@@ -63,12 +63,12 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "a00002.html",
-"a00011.html",
-"a00032.html#aac9f9b19bc164254db8f7083076721cf",
-"a00084.html#a1cf7f1accef56826b2bf09117f1d4103",
-"a00096.html#a4fb0e2dae8b783912398840f981c3529",
-"a00104.html#a0b8b54e510406a3a88b4f5cd050fbfe0",
-"a00108.html#adb3eaa4fd33ef7d1d538bf014c30fc0a"
+"a00008.html#affee16dfce6b4d7693bb6e1bdc4df700",
+"a00032.html#a8b72cdee2d1967f5742e3651190e1123",
+"a00084.html#a1851d9d87459ee132813e81f93593842",
+"a00096.html#a4f95eea5fc8fb9bd13aa3c041891d651",
+"a00104.html#a0888c2875f2c67d8dc40a12b5d71acff",
+"a00108.html#ac6cff4eeae8387ef99863719550c6ef0"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

@@ -48,19 +48,19 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /usr/local/Cellar/cmake/3.30.2/bin/cmake
+CMAKE_COMMAND = /opt/homebrew/Cellar/cmake/3.30.2/bin/cmake
 
 # The command to remove a file.
-RM = /usr/local/Cellar/cmake/3.30.2/bin/cmake -E rm -f
+RM = /opt/homebrew/Cellar/cmake/3.30.2/bin/cmake -E rm -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/paillet/local/research/research-backendserver-fmnc
+CMAKE_SOURCE_DIR = /Users/rpaillet/local/research/research-backendserver-fmnc
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/paillet/local/research/research-backendserver-fmnc/build
+CMAKE_BINARY_DIR = /Users/rpaillet/local/research/research-backendserver-fmnc/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -68,7 +68,7 @@ CMAKE_BINARY_DIR = /Users/paillet/local/research/research-backendserver-fmnc/bui
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Running CMake cache editor..."
-	/usr/local/Cellar/cmake/3.30.2/bin/ccmake -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+	/opt/homebrew/Cellar/cmake/3.30.2/bin/ccmake -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -78,7 +78,7 @@ edit_cache/fast: edit_cache
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Running CMake to regenerate build system..."
-	/usr/local/Cellar/cmake/3.30.2/bin/cmake --regenerate-during-build -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+	/opt/homebrew/Cellar/cmake/3.30.2/bin/cmake --regenerate-during-build -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : rebuild_cache
 
 # Special rule for the target rebuild_cache
@@ -87,9 +87,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/paillet/local/research/research-backendserver-fmnc/build/CMakeFiles /Users/paillet/local/research/research-backendserver-fmnc/build//CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/rpaillet/local/research/research-backendserver-fmnc/build/CMakeFiles /Users/rpaillet/local/research/research-backendserver-fmnc/build//CMakeFiles/progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/paillet/local/research/research-backendserver-fmnc/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/rpaillet/local/research/research-backendserver-fmnc/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -130,17 +130,17 @@ check-template/fast:
 .PHONY : check-template/fast
 
 #=============================================================================
-# Target rules for targets named FMNC-CLIENT
+# Target rules for targets named FMNC-SERVER
 
 # Build rule for target.
-FMNC-CLIENT: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 FMNC-CLIENT
-.PHONY : FMNC-CLIENT
+FMNC-SERVER: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 FMNC-SERVER
+.PHONY : FMNC-SERVER
 
 # fast build rule for target.
-FMNC-CLIENT/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/FMNC-CLIENT.dir/build.make CMakeFiles/FMNC-CLIENT.dir/build
-.PHONY : FMNC-CLIENT/fast
+FMNC-SERVER/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/FMNC-SERVER.dir/build.make CMakeFiles/FMNC-SERVER.dir/build
+.PHONY : FMNC-SERVER/fast
 
 #=============================================================================
 # Target rules for targets named doc_doxygen
@@ -168,36 +168,12 @@ quill/fast:
 	$(MAKE) $(MAKESILENT) -f lib/quill/CMakeFiles/quill.dir/build.make lib/quill/CMakeFiles/quill.dir/build
 .PHONY : quill/fast
 
-src/logger.o: src/logger.cpp.o
-.PHONY : src/logger.o
-
-# target to build an object file
-src/logger.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/FMNC-CLIENT.dir/build.make CMakeFiles/FMNC-CLIENT.dir/src/logger.cpp.o
-.PHONY : src/logger.cpp.o
-
-src/logger.i: src/logger.cpp.i
-.PHONY : src/logger.i
-
-# target to preprocess a source file
-src/logger.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/FMNC-CLIENT.dir/build.make CMakeFiles/FMNC-CLIENT.dir/src/logger.cpp.i
-.PHONY : src/logger.cpp.i
-
-src/logger.s: src/logger.cpp.s
-.PHONY : src/logger.s
-
-# target to generate assembly for a file
-src/logger.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/FMNC-CLIENT.dir/build.make CMakeFiles/FMNC-CLIENT.dir/src/logger.cpp.s
-.PHONY : src/logger.cpp.s
-
 src/main.o: src/main.cpp.o
 .PHONY : src/main.o
 
 # target to build an object file
 src/main.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/FMNC-CLIENT.dir/build.make CMakeFiles/FMNC-CLIENT.dir/src/main.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/FMNC-SERVER.dir/build.make CMakeFiles/FMNC-SERVER.dir/src/main.cpp.o
 .PHONY : src/main.cpp.o
 
 src/main.i: src/main.cpp.i
@@ -205,7 +181,7 @@ src/main.i: src/main.cpp.i
 
 # target to preprocess a source file
 src/main.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/FMNC-CLIENT.dir/build.make CMakeFiles/FMNC-CLIENT.dir/src/main.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/FMNC-SERVER.dir/build.make CMakeFiles/FMNC-SERVER.dir/src/main.cpp.i
 .PHONY : src/main.cpp.i
 
 src/main.s: src/main.cpp.s
@@ -213,7 +189,7 @@ src/main.s: src/main.cpp.s
 
 # target to generate assembly for a file
 src/main.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/FMNC-CLIENT.dir/build.make CMakeFiles/FMNC-CLIENT.dir/src/main.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/FMNC-SERVER.dir/build.make CMakeFiles/FMNC-SERVER.dir/src/main.cpp.s
 .PHONY : src/main.cpp.s
 
 # Help Target
@@ -226,11 +202,8 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... check-template"
 	@echo "... doc_doxygen"
-	@echo "... FMNC-CLIENT"
+	@echo "... FMNC-SERVER"
 	@echo "... quill"
-	@echo "... src/logger.o"
-	@echo "... src/logger.i"
-	@echo "... src/logger.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
