@@ -5,6 +5,7 @@
 #include <unistd.h>
 #include <openssl/ssl.h>
 #include <openssl/err.h>
+#include <arpa/inet.h> // for inet_addr
 
 void initialize_ssl()
 {
@@ -59,9 +60,9 @@ int main()
 
     memset(&addr, 0, sizeof(addr));
     addr.sin_family = AF_INET;
-    addr.sin_port = htons(8080);
-    addr.sin_addr.s_addr = htonl(INADDR_LOOPBACK);
-
+    addr.sin_port = htons(8085);
+    addr.sin_addr.s_addr = inet_addr("192.168.2.2");
+    
     bind(sockfd, (struct sockaddr *)&addr, sizeof(addr));
     listen(sockfd, 1);
 
